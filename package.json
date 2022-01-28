@@ -1,0 +1,32 @@
+{
+  "name": "replace-deferred-object-with-async-await",
+  "version": "1.0.0",
+  "description": "This repo demonstrates code changes required to replace jQuery's deferred object with ES6 async await",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "webpack --mode=development",
+    "start:prod": "webpack --mode=production",
+    "serve": "webpack serve"
+  },
+  "keywords": [],
+  "author": "Tejas",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "3.5.1",
+    "promise-polyfill": "8.2.1",
+    "regenerator": "0.14.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.16.8",
+    "@babel/core": "7.16.10",
+    "@babel/plugin-proposal-class-properties": "7.16.7",
+    "@babel/preset-env": "7.16.10",
+    "babel-loader": "8.2.3",
+    "babel-plugin-istanbul": "6.1.1",
+    "babel-polyfill": "6.26.0",
+    "webpack": "5.66.0",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "4.7.3",
+    "webpack-merge": "5.8.0"
+  }
+}
