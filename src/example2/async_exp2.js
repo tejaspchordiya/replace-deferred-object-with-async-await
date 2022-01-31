@@ -9,11 +9,20 @@ function addToDOM(text) {
 
 async function printStories() {
   try {
+    // ajax request 1 > fetch stories from server
     let storiesList = await fetchStoriesFromServer();
-    addToDOM("Printing array as received from server:");
-    addToDOM(JSON.stringify(storiesList.splice(-5)));
+    addToDOM("Printing posts as received from server:");
+    addToDOM(JSON.stringify(storiesList.splice(-3)));
+
+    // ajax request 2 > fetch todos from server
+    let todosList = await fetchTodosFromServer();
+    addToDOM("Printing todos as received from server:");
+    addToDOM(JSON.stringify(todosList.splice(-3)));
+
   } catch (err) {
     addToDOM("Something went wrong!");
+  } finally {
+    addToDOM("Task Completed!");
   }
 }
 
@@ -21,6 +30,16 @@ async function fetchStoriesFromServer() {
   return new Promise((resolve, reject) => {
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/posts",
+      success: (data) => resolve(data),
+      error: () => reject(),
+    });
+  });
+}
+
+async function fetchTodosFromServer() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/todos",
       success: (data) => resolve(data),
       error: () => reject(),
     });
